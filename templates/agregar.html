@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<h2>Agregar producto</h2>
+
+<form method="POST">
+    <p>Nombre<br>
+    <input type="text" name="nombre" required></p>
+
+    <p>Categoría<br>
+    <select name="categoria">
+        <option>Res</option>
+        <option>Cerdo</option>
+        <option>Pollo</option>
+        <option>Embutidos</option>
+    </select></p>
+
+    <p>Precio por kg (₡)<br>
+    <input type="number" name="precio" required></p>
+
+    <p>Stock (kg)<br>
+    <input type="number" name="stock" step="0.1" required></p>
+
+    <button type="submit">Guardar</button>
+    <a href="/productos">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<h2>Modificar producto</h2>
+
+<form method="POST">
+    <p>Nombre<br>
+    <input type="text" name="nombre" value="{{ producto['nombre'] }}" required></p>
+
+    <p>Categoría<br>
+    <select name="categoria">
+        <option {% if producto["categoria"] == "Res" %}selected{% endif %}>Res</option>
+        <option {% if producto["categoria"] == "Cerdo" %}selected{% endif %}>Cerdo</option>
+        <option {% if producto["categoria"] == "Pollo" %}selected{% endif %}>Pollo</option>
+        <option {% if producto["categoria"] == "Embutidos" %}selected{% endif %}>Embutidos</option>
+    </select></p>
+
+    <p>Precio por kg (₡)<br>
+    <input type="number" name="precio" value="{{ producto['precio'] }}" required></p>
+
+    <p>Stock (kg)<br>
+    <input type="number" name="stock" value="{{ producto['stock'] }}" step="0.1" required></p>
+
+    <button type="submit">Guardar cambios</button>
+    <a href="/productos">Cancelar</a>
+</form>
+{% endblock %}
